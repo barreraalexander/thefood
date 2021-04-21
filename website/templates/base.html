@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=GoogleSans:wght@100;400&display=swap" rel="stylesheet">
+
+
+        {% assets "main_scss" %}
+            <link rel="stylesheet" href="{{ ASSET_URL}}">
+        {% endassets %}
+
+
+<!-- //SECTION: GLOBAL VARIABLES  -->
+        {% if title %}
+            <title id='title'>
+                {{title}} - The Food
+            </title>
+        {% else %}
+            <title id='title'>
+                The Food
+            </title>
+        {% endif %}
+
+    </head>
+
+    <body>
+<!-- //SECTION: base_aside_section -->
+        <section id='base_aside_section'>
+            {% if title == 'login' %}
+
+                <aside class="login_aside">
+                    <img id="back_div" class="aside_img" src="{{url_for('static', filename='images/assets/back.svg')}}" alt="backarrow">
+                    <figure>
+                        <img src="{{ url_for('static', filename='images/assets/chef logo big.svg.svg')}}" >
+                        <figcaption>
+                            THE FOOD
+                        </figcaption>
+                    </figure>
+                </aside>
+                
+            {% else %}
+
+                <aside>
+
+                    <img id="back_div" class="aside_img" src="{{url_for('static', filename='images/assets/back.svg')}}" alt="backarrow">
+                    
+                    <div id="heading_div">
+                        <h1 id="aside_h1">
+                            {{title|upper}}
+                        </h1>
+                        <svg id="aside_down_arrow" viewBox="0 0 47.726 42.814">
+                            <g id="triangle" transform="matrix(-1, -0.017, 0.017, -1, 46.993, 42.814)" fill="#fff">
+                            <path d="M 46.14729690551758 41.5 L 0.8527040481567383 41.5 L 23.5 1.023981690406799 L 46.14729690551758 41.5 Z" stroke="none"/>
+                            <path d="M 23.5 2.0479736328125 L 1.705413818359375 41 L 45.29458618164063 41 L 23.5 2.0479736328125 M 23.5 0 L 47 42 L 0 42 L 23.5 0 Z" stroke="none" fill="#fff"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <img id="cart" class="aside_img"  onclick=redir("{{url_for('users.cart')}}") src="{{url_for('static', filename='images/assets/cart.svg')}}" alt="cart image">            
+                
+                </aside>
+                
+            {% endif %}
+        </section>
+
+<!-- //SECTION: base_nav_section -->
+        <section id="base_nav_section" class="">
+            <nav id='nav_ctnr' class='invisible'>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('main.index')}}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{url_for('users.rec_viewed')}}">
+                            Recently Viewed
+                        </a>
+                    </li>
+
+                    {% if current_user.is_authenticated == False %}
+                    <li>
+                        <a href="{{url_for('users.register')}}">
+                            Register                        
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('users.login')}}">
+                            Login </a>
+                        </a>
+                    </li>
+                    {% endif %}
+                        
+                    {% if current_user.is_authenticated %}
+                        <li>
+                            <a href="{{ url_for('main.index')}}">
+                                {{current_user.fname}}'s Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('users.logout')}}">
+                                Logout
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </section>
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        {% endwith %}
+
+<!-- //SECTION: JS IMPORT -->
+<!-- //SECTION: CONTENT BLOCK -->
+
+    {% block content %}
+    {% endblock %}
+
+    {% assets "main_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL}}"> </script>
+    {% endassets %}
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+<!-- //SECTION: login_section1 -->
+    <section id="login_section1">
+        <h3>Register Now!</h3>
+        <div class="login_btn_flex">
+            <div class="fb_button"> 
+                <img src="{{ url_for('static', filename='images/assets/facebook_logo.svg.svg') }}">
+                <p> Facebook </p>
+            </div>
+            <div class="gg_button">
+                <img src="{{ url_for('static', filename='images/assets/google-logo.svg.svg') }}">
+                <p> Google </p>
+            </div>
+        </div>
+    </section>
+<!-- //SECTION: login_section2 -->
+    <section id="login_section2"> 
+        <div class="line-through-text">
+            <span>
+                Register with Email
+            </span>
+        </div>
+        
+        <div class="form_ctnr">
+            <form method='POST', action="{{url_for('api.register')}}">
+                {{form.hidden_tag()}}
+                
+                {{form.email.label(class="sr-only")}}
+                <div class="input_ctnr">
+                    <img id="form_user_img" src="{{ url_for('static', filename='images/assets/username.svg.svg') }}"">
+                    {{form.email(class="no-border", type="text", placeholder="Email")}}
+                </div>
+
+                {{form.password.label(class="sr-only")}}
+                <div class="input_ctnr">
+                    <img id="form_pw_img" src="{{ url_for('static', filename='images/assets/lock.svg.svg') }}"">
+                    {{form.password(class="no-border", type="text", placeholder="Password")}}
+                </div>
+
+                <a  href="#" class="forgot_password">
+                    Forgot Password?
+                </a>
+                    
+                <div class="input_ctnr no-border">
+                    {{form.submit(class="cta_btn_fill", style="color:#fff;")}}
+                </div>
+            </form>
+        </div>
+        <div class= "register_ctnr">
+            <p>Already have an Account?</p>
+            <a href="{{ url_for('users.login') }}">
+                <h5>
+                    Login
+                </h5>
+            </a>
+        </div>
+    </section> 
+</main>
+
+{% endblock content %}

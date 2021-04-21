@@ -1,0 +1,21 @@
+.rate_div_component{
+    align-content: center;
+    display: flex;
+    border-radius: 20px;
+    height: 2em;
+    flex-flow: row nowrap;
+    flex-direction: reverse;
+    gap: .5em;
+    justify-content: center;
+    padding: .5em;
+    background-color: $rating_badge_bg;
+    width: 4em;
+    p{
+        font-size: .6rem;
+        font-weight: 700;
+    }
+    img{
+        width: .8em;
+    }
+}
+

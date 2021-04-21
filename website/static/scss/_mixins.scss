@@ -1,0 +1,71 @@
+@mixin aside_img{
+    bottom: -10px;
+    cursor: pointer;
+    margin: 1.5em;
+    max-width: 30px;
+    position: relative;
+    width: 25%;
+}
+@mixin cta_btn{
+    border-radius: 1em;
+    border-width: .10em;
+    cursor: pointer;
+    font-weight: 700;
+    height: 3.5em;
+    width: 100%;
+    padding: 1em 1.25em;
+
+
+}
+@mixin food_badge_sm {
+    border-radius: 15px;
+    font-size: .90rem;
+    font-weight: 600;
+    padding: .50em;
+    margin: .50em;
+    div{
+        display: grid;
+        grid-template-rows: 1em;
+        grid-template-columns: 20% 80%;    
+    }
+    img{
+        height: 12px;
+        width: 12px;
+    }
+}
+@mixin kw_div{
+    border-radius: 15px;
+    padding: .5em;    
+    // width: 20%;
+}
+@mixin login_btn{
+    border-color: #fff;
+    border-radius: 20px;
+    box-shadow: .20em .15em .15em .1em rgba($color: #f3f3f3, $alpha: .75);
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+    gap: .5em;
+    padding: .5em;
+    justify-content: center;
+    p{
+        padding-top: .25em;
+        font-size: 1.2rem;
+    }
+}
+
+@mixin prep_badge{
+    border-radius: 15px;
+    font-size: .6rem;
+    font-weight: 700;
+    height: 20%;
+    margin: .5em;
+    padding: .5em;
+    text-align: center;
+    width: 30%;
+    p{
+        letter-spacing: .02em;
+    }
+}
+
+

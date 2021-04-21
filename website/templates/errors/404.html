@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section id="error_section1">
+        <h1>
+            O Page, Wherefore Art Thou? (404)
+        </h1>
+        <a href="{{ url_for('main.index') }}">
+            <p>
+                Yikes. Please go back.
+            </p>
+        </a>
+    </section>
+
+{% endblock %}

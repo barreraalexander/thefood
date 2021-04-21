@@ -1,0 +1,19 @@
+**.vscode
+**.webassets-cache
+**__pycache__
+venv
+venv3732
+progress.txt
+
+website/static/gen
+website/static/css/bootstrap
+
+#py utils not in use
+imgscraper.py
+s3.py
+savepicture.py
+scraper.py
+utils.py
+website/utils/food_database
+food_db.mdb
+food_database

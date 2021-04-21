@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section id="rec_viewed_section1">
+        <div class="slideshow_ctnr">
+            {% for model in liked_recipes[:4] %}
+                {% if loop.index == 1 %}
+                    <div id="slide{{loop.index}}" class="slideshow_slide">
+                {% else %}
+                    <div id="slide{{loop.index}}" class="slideshow_slide invisible">
+                {% endif %}
+                        <img id="slide_img_{{loop.index}}" name="slide" src="{{model.img_locs.split('$')[0]}}" alt="">
+                        <p class="slide_keyword">
+                            {{model.keyword|upper}}
+                        </p>
+                        <p class="slide_text">
+                            # Recently Viewed Recipes
+                        </p>
+                    </div>
+                    {% endfor %}
+                
+                <div id="slideshow_tab_picker" class="tab_picker">
+                    <button id="tab1" class="white_bg" data-slide_id="slide1"></button>
+                    <button id="tab2" data-slide_id="slide2"></button>
+                    <button id="tab3" data-slide_id="slide3"></button>
+                    <button id="tab4" data-slide_id="slide4"></button>
+                </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="rec_viewed_section2">
+        <div class=favorites_flex>
+            <h2>
+                Favorites
+            </h2>
+            <img id="see_all_arrow" src="{{url_for('static', filename='images/assets/see all.svg.svg')}}">            
+        </div>
+
+        <div id="category_picker" class="kw_flex">
+            {% for keyword in keywords %}
+                <div class="category_div">
+                    {% if loop.index==1 %}
+                        <div id="category{{loop.index}}" class="kw_img_div selected_btn">
+                            <img src="{{ url_for('static', filename='images/assets/noun_'+keyword+'_wht.svg')}}" data-inverse_img="{{ url_for('static', filename='images/assets/noun_'+keyword+'.svg')}}" alt="{{keyword}}">
+                            {% else %}
+                            <div id="category{{loop.index}}" class="kw_img_div">
+                                <img src= "{{ url_for('static', filename='images/assets/noun_'+keyword+'.svg')}}" data-inverse_img="{{ url_for('static', filename='images/assets/noun_'+keyword+'_wht.svg')}}">
+                            </div>
+                        {% endif %}
+                    <p>{{keyword}}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- <div class="kw_flex">
+            {% for keyword in keywords %}
+                <div class="kw_p_div" style="background-color: #fff;">
+                    <p>{{keyword[0]|upper}}{{keyword[1:]}}</p>
+                </div>
+            {% endfor %}
+        </div> -->
+    </section>
+
+    <section id="rec_viewed_section3">
+        <div class="viewed_flex">
+            {% for i in range(4) %}
+                <div class="food_div" onclick=redir("{{ url_for('main.recipe', model_id=viewed_recipes[i]._id) }}")>
+                    <p>
+                        {{viewed_recipes[i].name}}
+                    </p>
+                    <div class="food_rate2">
+                        <svg viewBox="0 0 14.75 14.814">
+                            <path id="start-filled" d="M7,1,8.5,5.533H13L9.5,8.467,10.75,13,7,10.333,3.25,13,4.5,8.467,1,5.533H5.5Z" transform="translate(0.375 0.592)" fill="#f1c471" stroke="#f1c471" stroke-width="1"/>
+                        </svg>
+                        <p>
+                            {{viewed_recipes[i].rating}}
+                        </p>
+                    </div>
+                    <img class='' src="{{viewed_recipes[i].img_locs.split('$')[0]}}">
+                </div>            
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+{% endblock %}

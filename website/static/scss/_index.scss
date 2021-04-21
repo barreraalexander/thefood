@@ -1,0 +1,181 @@
+//SECTION: index_section1
+#index_section1{
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    position: relative;
+}
+
+
+//SECTION: index_section2
+#index_section2{
+    position: relative;
+    margin-bottom: .2em;
+
+}
+
+
+
+//SECTION: index_section3
+#index_section3{
+    button{
+        grid-column: span 2;
+        font-weight: 600;
+        margin-bottom: 2em;
+    }
+    img{
+        bottom: -30px;
+        height: 10em;
+        position: absolute;
+        right: -25px;
+        width: 10em;
+    }
+}
+
+//SECTION: index_section4
+#index_section4{
+    z-index: 900;
+    position: relative;
+    top: -2.3em;
+    form{
+        height: 0em;
+    }
+}
+#model_prep_time_ctnr{
+    @include prep_badge;
+    background-color: $red_badge_bg;
+    color: $red_badge_text;
+}
+
+#model_cook_time_ctnr{
+    @include prep_badge;
+    background-color: $orange_badge_bg;
+    color: $orange_badge_text;
+}
+#model_total_time_ctnr{
+    @include prep_badge;
+    background-color: $green_badge_bg;
+    color: $green_badge_text;
+}
+
+#model_rating_ctnr{
+    @include prep_badge;
+    background-color: $rating_badge_bg;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 12%;
+    img{
+        width: 25%;
+    }
+}
+
+#model_ings_ctnr{
+    h5{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    ul{
+        list-style: none;
+        padding: 0em .5em;
+    }
+    li{
+        font-size: .9rem;
+        margin-bottom: .1em;
+    }
+}
+
+#model_steps_ctnr{
+    h5{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    ol{
+        // list-style: upper-alpha;
+        padding: 0em .5em;
+    }
+    li{
+        font-size: .7rem;
+    }
+}
+//SECTION: END OF index_section4
+
+#atc_submit{
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 85%;
+    position: fixed;
+    width: 80%;
+    z-index: 1000;
+    max-width: 500px;
+}
+
+
+
+
+// #preview_div_1, #preview_div_2 {
+//     display: block;
+// }
+
+
+
+
+// .preview_ctnr{
+//     display: none;
+// }
+
+
+
+
+
+#kw_div1{
+    background-color: $chicken_bg;
+}
+
+
+#kw_div2{
+    background-color: $beef_bg;
+}
+
+
+#kw_div3{
+    background-color: $pasta_bg;
+}
+
+
+#kw_div4{
+    background-color: $vegan_bg;
+}
+
+
+
+#surprise_btn{
+    border-width: 2px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 80%;
+}
+
+
+//SECTION: TABLET MEDIA QUERIES
+@media only screen and (min-width:$tablet_bp){
+    // .preview_ctnr{
+    //     display: block;
+    //     padding: .5em;
+    //     margin: .5em;
+    // }
+    // .preview_div{
+    //     width: 80%;
+    // }
+}
+
+//SECTION: DESKTOP MEDIA QUERIES
+@media only screen and (min-width:$desktop_bp){
+    .more_choices_div{
+        display: block;
+    }
+}

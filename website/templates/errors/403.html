@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<section id="error_section1">
+    <h1>
+        Hey You Cant' Do That (403)
+    </h1>
+    <a href="{{ url_for('main.login') }}">
+        <p>
+            Please check your account and try again.
+        </p>
+    </a>
+</section>
+
+
+{% endblock %}

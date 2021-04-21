@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+<!-- //SECTION: cart_section1 -->
+    <section id="cart_section1">
+        {% if models|length == 1 %}
+            <h1>
+                Your Order
+            </h1>
+        {% else %}
+            <h1>
+                Your Orders
+            </h1>
+        {% endif %}
+        
+        <div class="orders_ctnr">
+            {% for model in models %}
+                <div class="order_flex">
+                    <img src={{model.img_locs.split('$')[0]}}>
+
+                    <div class="order_description_flex">
+                        <h3>
+                            {{model.name}}
+                        </h3>
+                        
+                        <div class="food_time_div food_rate_div">
+                            <div>
+                                <img src="{{ url_for('static', filename='images/assets/rating star.svg.svg') }}">
+                                <p>
+                                    {{model.rating}}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="food_time_div">
+                            <div>
+                                <img src="{{ url_for('static', filename='/images/assets/watch.svg.svg') }}">
+                                <p class="uppercase">
+                                    {{model.preptime}}
+                                </p>
+                            </div>
+                        </div>
+
+
+            
+                    </div>
+                    
+                </div>
+
+
+                <div id="ingredients" name="ingredients">
+                    {% for choice in model.ingredients.split('$') %}
+                        <div>
+                            <input id="choice{{loop.index}}" class="cust_checkbox" name="ingredients" type="checkbox" value={{choice}}>
+                            <label for="choice{{loop.index}}">
+                                {{choice}}
+                            </label>
+                            <!-- <hr> -->
+                        </div>
+                        {% endfor %}
+                    </div>
+            <hr>
+            {% endfor %}
+        </div>
+<!-- //SECTION: FORM -->
+        <form methods='POST' action=''>                
+            {{form.order_submit(class="cta_btn_fill")}}
+        </form>
+    </section>
+</main>
+
+{% endblock %}
+

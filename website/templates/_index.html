@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    {{chosen_div}}
+
+    <section id="index_section1">
+        <div class="index_section1_div">
+            <p>
+                Recommended for You
+            </p>
+            <a  href="{{url_for('users.rec_viewed', user_id=current_user._id)}}">
+                <img id="see_all_arrow" src="{{url_for('static', filename='images/assets/see all.svg.svg')}}">            
+            </a>
+        </div>
+    </section>
+
+    <section id="index_section2">
+        <div class="preview_div_ctnr">
+            {% for preview_div in preview_divs %}
+                
+                {% if loop.index <= 2 %}
+                    <div id="preview_div_{{loop.index}}" class="preview_parent">
+                        {{preview_div}}
+                    </div>
+                {% elif 4 >= loop.index > 2 %}
+                    <div id="preview_div_{{loop.index}}" class="preview_parent show_on_tablet">
+                        {{preview_div}}
+                    </div>
+                {% else %}
+                    <div id="preview_div_{{loop.index}}" class="preview_parent show_on_desktop">
+                        {{preview_div}}
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="index_section3">
+        <button id="surprise_btn" class="cta_btn_outline">
+            Surprise Me!
+        </button>
+        <div id="kw_divs_ctnr" class="kw_divs_ctnr">
+
+                <div id="kw_div1" data-keyword="{{keywords[0]}}" >
+                    <p>
+                        {{keywords[0]}}
+                    </p>
+                    <img src="{{ url_for('static', filename='images/btnpics/'+keywords[0]+'_plate.png') }}">
+                </div>
+
+                <div id="kw_div2" data-keyword="{{keywords[1]}}">
+                    <p>
+                        {{keywords[1]}}
+                    </p>
+                    <img src="{{ url_for('static', filename='images/btnpics/'+keywords[1]+'_plate.png') }}">
+                </div>
+        </div>
+        <div class="kw_divs_ctnr">
+
+                <div id="kw_div3" data-keyword="{{keywords[2]}}">
+                    <p>
+                        {{keywords[2]}}
+                    </p>
+                    <img src="{{ url_for('static', filename='images/btnpics/'+keywords[2]+'_plate.png') }}">
+                </div>
+
+                <div id="kw_div4" data-keyword="{{keywords[3]}}">
+                    <p>
+                        {{keywords[3]}}
+                    </p>
+                    <img src="{{ url_for('static', filename='images/btnpics/'+keywords[3]+'_plate.png') }}">
+                </div>
+        </div>
+    </section>
+
+    <form class="invisible" method='POST' action="{{url_for('api.add_to_views')}}" enctype="multipart/form-data">
+        {{view_form.hidden_tag()}}
+        {{view_form.view_recipe_id(class_="")}}            
+        {{view_form.view_submit(class_="")}}
+    </form>
+
+    <form id="atc_form" class="invisible" method='' action="" enctype="multipart/form-data">
+        {{atc_form.hidden_tag()}}
+        {{atc_form.chosen_recipe_id(class_="")}}
+        {{atc_form.atc_submit(class_="cta_btn_fill")}}
+    </form>
+
+    <form id="like_form" class="invisible" method='' action="" enctype="multipart/form-data">
+        {{like_form.hidden_tag()}}
+        {{like_form.liked_recipe_id(class_="")}}
+        {{like_form.like_submit(class_="")}}
+    </form>
+
+    <form class="invisible" method='POST' action="" enctype="multipart/form-data">
+        {{rate_form.hidden_tag()}}
+        {{rate_form.rate_recipe_id(class_="")}}
+        {{rate_form.rate_submit(class_="")}}
+    </form>
+
+</main>
+
+{% endblock %}

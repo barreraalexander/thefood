@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+    <section id="error_section1">
+        <h1>
+            Oh Boy (500)
+        </h1>
+        <a href="{{ url_for('main.index') }}">
+            <p>
+                We're fixing it! Please check back later.
+            </p>
+        </a>
+    </section>
+
+{% endblock %}
+
