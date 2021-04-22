@@ -47,12 +47,15 @@
                     {% if loop.index==1 %}
                         <div id="category{{loop.index}}" class="kw_img_div selected_btn">
                             <img src="{{ url_for('static', filename='images/assets/noun_'+keyword+'_wht.svg')}}" data-inverse_img="{{ url_for('static', filename='images/assets/noun_'+keyword+'.svg')}}" alt="{{keyword}}">
-                            {% else %}
-                            <div id="category{{loop.index}}" class="kw_img_div">
-                                <img src= "{{ url_for('static', filename='images/assets/noun_'+keyword+'.svg')}}" data-inverse_img="{{ url_for('static', filename='images/assets/noun_'+keyword+'_wht.svg')}}">
-                            </div>
-                        {% endif %}
-                    <p>{{keyword}}</p>
+                        </div>
+                    {% else %}
+                        <div id="category{{loop.index}}" class="kw_img_div">
+                            <img src= "{{ url_for('static', filename='images/assets/noun_'+keyword+'.svg')}}" data-inverse_img="{{ url_for('static', filename='images/assets/noun_'+keyword+'_wht.svg')}}" alt="{{keyword}}">
+                        </div>
+                    {% endif %}
+                    <p>
+                        {{keyword}}
+                    </p>
                 </div>
             {% endfor %}
         </div>

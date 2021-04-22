@@ -63,24 +63,30 @@
 //SECTION: favorites_grid_section
 #rec_viewed_section3{
     position: relative;
-    // .favorites_grid{
-    //     display: grid;
-    //     grid-template-columns: 50% 50%;
-    //     grid-template-rows: 50% 50%;
-    //     gap: .8em;
-    //     margin: 0 auto;
-    // }
 
     .food_img{
         width: 25%;
         z-index: 999;
-        // position: absolute;
-        // border-radius: 20px;
-        // z-index: 99;
-        // opacity: .90;
-        // max-width: 100%;
     }
 }
+
+
+.category_div{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
 
 // .food_div{
 //     position: relative;
