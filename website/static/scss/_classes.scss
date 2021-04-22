@@ -226,12 +226,7 @@
 .kw_img_div{
     @include kw_div;
     background-color: $rating_badge_bg;
-    width: 3em;
-    // :hover{
-    //     background-color: $primary1;
-    //     border-color: transparent;
-    //     padding: none;       
-    // }
+    width: 4em;
 }
 
 .kw_p_div{
