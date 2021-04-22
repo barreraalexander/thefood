@@ -90,3 +90,38 @@
 #ingredients{
     font-size: .75rem;
 }
+
+
+.dissolver{
+    opacity: 0;
+    position: relative;
+	-webkit-animation: dissolve 2s ease;
+	        animation: dissolve 2s ease;
+}
+
+@-webkit-keyframes dissolve {
+	0% {
+        opacity: 1;
+
+	}
+	50% {
+		opacity: .7;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 1;
+	}
+	50% {
+		opacity: .7;
+	}
+	100% {
+		opacity: 0;
+	}
+
+}
+

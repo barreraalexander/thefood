@@ -11,6 +11,7 @@ bundles = {
         'js/back.js',
         'js/food_ctnr_mod.js',
         'js/keyword_divs_mod.js',
+        'js/ingredients_dropdown_mod.js',
         'js/menu_mod.js',
         'js/redir.js',
         'js/slideshow.js',

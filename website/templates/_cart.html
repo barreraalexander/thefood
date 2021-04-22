@@ -33,8 +33,6 @@
                             </div>
                         </div>
                         
-                        
-                        
                         <div class="food_time_div">
                             <div>
                                 <img src="{{ url_for('static', filename='/images/assets/watch.svg.svg') }}">
@@ -43,25 +41,28 @@
                                 </p>
                             </div>
                         </div>
-
-
-            
                     </div>
-                    
                 </div>
 
-
-                <div id="ingredients" name="ingredients">
+                <h3>
+                    Ingredients
+                </h3>
+                <div id="ingredients{{loop.index}}" class="ingredients_ctnr" data-model_id="{{model._id}}" name="ingredients">
                     {% for choice in model.ingredients.split('$') %}
-                        <div>
-                            <input id="choice{{loop.index}}" class="cust_checkbox" name="ingredients" type="checkbox" value={{choice}}>
+                        <div class="ingredients_list">
+                            <input
+                                id="choice{{loop.index}}"
+                                class="cust_checkbox"
+                                name="ingredients"
+                                type="checkbox"
+                                value={{choice}}
+                            >
                             <label for="choice{{loop.index}}">
                                 {{choice}}
                             </label>
-                            <!-- <hr> -->
                         </div>
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
+                </div>
             <hr>
             {% endfor %}
         </div>
