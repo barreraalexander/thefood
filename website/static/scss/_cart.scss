@@ -125,3 +125,13 @@
 
 }
 
+
+.ing_tri_ctnr{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1em;
+    svg{
+        width: .5em;
+        transform: rotate(270deg);
+    }
+}

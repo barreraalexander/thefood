@@ -44,10 +44,19 @@
                     </div>
                 </div>
 
-                <h3>
-                    Ingredients
-                </h3>
-                <div id="ingredients{{loop.index}}" class="ingredients_ctnr" data-model_id="{{model._id}}" name="ingredients">
+                <div class="ing_tri_ctnr">
+                    <h3>
+                        Ingredients
+                    </h3>
+                    <svg id="" class="ing_triangle" data-loop_index="{{loop.index}}" data-is_open=0 viewBox="0 0 47.726 42.814">
+                        <g id="triangle" transform="matrix(-1, -0.017, 0.017, -1, 46.993, 42.814)" fill="#000">
+                        <path d="M 46.14729690551758 41.5 L 0.8527040481567383 41.5 L 23.5 1.023981690406799 L 46.14729690551758 41.5 Z" stroke="none"/>
+                        <path d="M 23.5 2.0479736328125 L 1.705413818359375 41 L 45.29458618164063 41 L 23.5 2.0479736328125 M 23.5 0 L 47 42 L 0 42 L 23.5 0 Z" stroke="none" fill="#fff"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <div id="ingredients{{loop.index}}" class="ingredients_ctnr invisible" data-model_id="{{model._id}}" name="ingredients">
                     {% for choice in model.ingredients.split('$') %}
                         <div class="ingredients_list">
                             <input
