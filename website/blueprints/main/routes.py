@@ -52,6 +52,7 @@ def index():
                         keywords=FOOD_KEYWORDS,
                         )
 
+
 @main.route ('/recipes/<string:model_id>', methods=['GET', 'POST'])
 def recipe (model_id):
     atc_form = AddToCartForm()
