@@ -1,23 +1,16 @@
 import json
 
+with open ('/etc/food_config.json') as config_file:
+    config = json.load(config_file)
 
 class DBConfig:
-    SECRET_KEY = "secret_key"
-    MYSQL_USER = "alex"
-    MYSQL_PASSWORD = "F00dapp1!"
-    MYSQL_HOST= "recipedb.czl2wgls13df.us-east-1.rds.amazonaws.com"
-    MYSQL_DB = "thefood"
+    SECRET_KEY = config.get('SECRET_KEY')
+    MYSQL_USER = config.get('MYSQL_USER')
+    MYSQL_PASSWORD = config.get('MYSQL_PASSWORD')
+    MYSQL_HOST= config.get('MYSQL_HOST')
+    MYSQL_DB = config.get('MYSQL_DB')
     MYSQL_CURSORCLASS = "DictCursor"
     shell_conn = "alex:F00dapp1!@recipedb.czl2wgls13df.us-east-1.rds.amazonaws.com"
-
-class DBLocalConfig:
-    SECRET_KEY = 'secret_key'
-    MYSQL_USER = "root"
-    MYSQL_PASSWORD = "Barr1993"
-    MYSQL_HOST = "localhost"
-    MYSQL_DB = "the_food"
-    MYSQL_CURSORCLASS = "DictCursor"
-    shell_conn = "root:Barr1993@localhost"
 
 cacheConfig = {
     "DEBUG": True,         
